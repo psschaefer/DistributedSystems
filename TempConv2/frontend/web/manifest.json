@@ -1,0 +1,11 @@
+{
+  "name": "TempConv2",
+  "short_name": "TempConv2",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#E65100",
+  "theme_color": "#E65100",
+  "description": "Temperature Converter (gRPC)",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false
+}

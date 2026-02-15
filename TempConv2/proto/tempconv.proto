@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package tempconv;
+
+option go_package = "tempconv2-backend/gen";
+
+// Temperature conversion service (Celsius <-> Fahrenheit)
+service TempConvService {
+  rpc CelsiusToFahrenheit(ConversionRequest) returns (ConversionResponse);
+  rpc FahrenheitToCelsius(ConversionRequest) returns (ConversionResponse);
+}
+
+message ConversionRequest {
+  double value = 1;
+}
+
+message ConversionResponse {
+  double input = 1;
+  double output = 2;
+  string from_unit = 3;
+  string to_unit = 4;
+  string description = 5;
+}

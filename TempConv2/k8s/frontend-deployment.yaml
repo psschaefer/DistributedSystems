@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: tempconv2
+  labels:
+    app: tempconv2
+    component: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tempconv2
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: tempconv2
+        component: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: gcr.io/tempconv2-487514/tempconv2-frontend:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /nginx-health
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /nginx-health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: tempconv2
+  labels:
+    app: tempconv2
+    component: frontend
+spec:
+  selector:
+    app: tempconv2
+    component: frontend
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: LoadBalancer
