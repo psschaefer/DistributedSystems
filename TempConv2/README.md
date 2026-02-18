@@ -22,8 +22,3 @@ Same as TempConv (Celsius ↔ Fahrenheit, Go backend, Flutter web frontend, GKE)
 | Browser path | /api/*     | /grpc (via Envoy)|
 | Load test    | k6 HTTP    | Go gRPC client   |
 
----
-
-## License
-
-MIT
