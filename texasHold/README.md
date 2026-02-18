@@ -1,6 +1,5 @@
-# Texas Hold'em (REST API + Flutter Web)
-
-REST API and web UI for Texas Hold'em: hand evaluation, hand comparison, and win probability (Monte Carlo). Same deployment pattern as TempConv: Go backend, Flutter web, Kubernetes with **own external IP** (namespace `texashold`), so it runs in parallel with TempConv2.
+# Texas Hold'em (REST API + Flutter Web)_
+REST API and web UI for Texas Hold'em: hand evaluation, hand comparison, and win probability (Monte Carlo). Same deployment pattern as TempConv: Go backend, Flutter web, Kubernetes with **own external IP** (namespace `texashold`),test cases are in hand_test
 
 ## Card format
 
